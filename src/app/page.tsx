@@ -1,12 +1,13 @@
 'use client';
 import React from 'react';
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 import { BookOutlined, RightOutlined } from '@ant-design/icons';
 
 interface IntroCardProps {
-  icon: any;
-  title: any;
-  description: any;
+  icon?: React.Component;
+  title: string;
+  description: string;
+  iconSrc: string;
 }
 
 const IntroCard: React.FC<IntroCardProps> = ({ iconSrc, title, description }) => {
@@ -38,10 +39,10 @@ export default function Home() {
 
             <div className="flex flex-col items-center mt-4">
               <div className="flex items-center">
-                <Button type="primary" shape="round" icon={<RightOutlined />} size={'large'} className="m-4">
+                <Button type="primary" shape="round" icon={<RightOutlined />} size={'large'} ghost={true} className="m-4">
                   前往使用
                 </Button>
-                <Button type="default" shape="round" icon={<BookOutlined />} size={'large'} ghost className="m-4">
+                <Button type="default" shape="round" icon={<BookOutlined />} size={'large'}  className="m-4">
                   使用文档
                 </Button>
               </div>
