@@ -1,4 +1,5 @@
 'use client';
+import 'tailwindcss/tailwind.css';
 import React, {ReactNode} from 'react';
 import { Button } from 'antd';
 import { BookOutlined, RightOutlined } from '@ant-design/icons';
