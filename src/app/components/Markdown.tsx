@@ -10,7 +10,7 @@ const Markdown: React.FC<{
     if (href === undefined) {
       return Promise.resolve("");
     }
-    return (async ()=>{
+    return (async () => {
       const resp = await fetch(href);
       if (resp.ok) {
         return await resp.text();
@@ -31,7 +31,9 @@ const Markdown: React.FC<{
     <Async.Fulfilled>
       {data => {
         console.log(data);
-        return <ReactMarkdown>{data}</ReactMarkdown>
+        return <ReactMarkdown>
+          {data as string}
+        </ReactMarkdown>
       }}
     </Async.Fulfilled>
   </Async>
