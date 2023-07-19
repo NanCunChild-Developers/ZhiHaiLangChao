@@ -6,6 +6,7 @@ import { BookOutlined, RightOutlined } from '@ant-design/icons';
 import { cn } from "@/utils/utils";
 import { WechatOutlined, WeiboOutlined, QqOutlined, TwitterOutlined } from '@ant-design/icons';
 import Link from "@/app/components/Link";
+import {globals} from "@/globals";
 
 interface IntroCardProps {
   icon?: ReactNode;
@@ -97,18 +98,20 @@ export default function Home() {
             <div className={cn("font-bold text-3xl text-blue-900 animate-titleFloat")}>SciAI Ocean Anticipation Utils</div>
             <div className={cn("text-lg text-blue-900 mt-2 animate-titleFloat")}>一款海洋环境预测商业化AI</div>
             <div className={cn("flex flex-col items-center mt-4")}>
-              <div className={cn("flex items-center mt-8")}>
-                <Link href={"/operation"}>
-                  <Button type="primary" shape="round" icon={<RightOutlined />} size={'large'} ghost={true}
-                    className={cn("m-8")}>
+              <div className={cn("flex items-center")}>
+                <Link href={globals.disableSider ? "/operation/analyze" : "/operation"}>
+                  <Button type="primary" shape="round" icon={<RightOutlined/>} size={'large'} ghost={true}
+                          className={cn("m-4")}>
                     前往使用
                   </Button>
                 </Link>
-                <Link href={"/docs"}>
-                  <Button type="default" shape="round" icon={<BookOutlined />} size={'large'} className={cn("m-8")}>
-                    使用文档
-                  </Button>
-                </Link>
+                {
+                  globals.disableDocs ? null : <Link href={"/docs"}>
+                    <Button type="default" shape="round" icon={<BookOutlined/>} size={'large'} className={cn("m-4")}>
+                      使用文档
+                    </Button>
+                  </Link>
+                }
               </div>
             </div>
           </div>
