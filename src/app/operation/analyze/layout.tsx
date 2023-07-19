@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {AppstoreOutlined, MailOutlined, SearchOutlined, SettingOutlined} from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import {Divider, Menu} from 'antd';
 import Link from "@/app/components/Link";
@@ -11,7 +11,7 @@ const items: MenuProps['items'] = [
       <Link href={"/operation/analyze/nav1"} wrapper={false } >Nav One</Link>
     ),
     key: 'mail',
-    icon: <MailOutlined />,
+    icon: <SearchOutlined />,
   },
   {
     label: 'Navigation Two',
@@ -53,14 +53,6 @@ const items: MenuProps['items'] = [
         ],
       },
     ],
-  },
-  {
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-      Ant Design
-      </a>
-    ),
-    key: 'alipay',
   },
 ];
 

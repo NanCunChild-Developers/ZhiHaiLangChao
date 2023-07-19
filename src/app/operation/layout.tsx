@@ -4,12 +4,12 @@ import React, {useState} from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
-  PieChartOutlined,
+  PieChartOutlined, QuestionOutlined,
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import type {MenuProps} from 'antd';
-import {Breadcrumb, Divider, Layout, Menu, Row, theme} from 'antd';
+import {Breadcrumb, Button, Divider, Layout, Menu, Row, theme} from 'antd';
 import Link from "@/app/components/Link";
 import {globals} from "@/globals";
 
@@ -98,6 +98,12 @@ export default function Page({children}: { children: React.ReactNode }) {
               })}/>
             </div>
           }
+          <Row className={cn("flex-grow h-48 items-center")} justify={"end"}>
+              <Link href={"/docs"} wrapper innerFlex>
+                <QuestionOutlined/>
+                Docs
+              </Link>
+          </Row>
         </Row>
       </Header>
       <Layout>

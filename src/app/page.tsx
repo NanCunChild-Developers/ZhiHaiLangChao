@@ -66,7 +66,9 @@ export default function Home() {
     <main>
       <div className={cn("h-screen")}>
         <div className={cn("overflow-hidden h-screen flex justify-center")}>
-          <div className={"title-screen"}/>
+          {
+            globals.enableTitleScreenBackground ? <div className={"title-screen"}/> : null
+          }
           <div className={cn("text-center mt-[30vh]")}>
             <div className={cn("font-bold text-4xl text-blue-900")}>智海浪潮</div>
             <div className={cn("font-bold text-2xl text-blue-900")}>SciAI Ocean Anticipation Utils</div>
@@ -93,7 +95,6 @@ export default function Home() {
         <div className={cn("overflow-hidden h-screen bg-white-600 flex items-center justify-center")}>
           <div className={cn("text-center")}>
             <div className={cn("font-bold text-4xl text-blue-900 mb-4")}>介绍</div>
-
             <div className={cn("grid grid-cols-2 gap-4 m-2 mt-4")}>
               {cardData.map((card, index) => (
                 <div key={index} className={cn("mt-12 mb-12 ml-14 mr-14 p-4")}>
@@ -105,7 +106,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         <div className={cn("overflow-hidden h-screen bg-white-600 flex items-center justify-center")}>Section 3</div>
       </div>
     </main>

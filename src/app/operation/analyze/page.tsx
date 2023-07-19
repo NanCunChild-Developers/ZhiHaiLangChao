@@ -1,6 +1,5 @@
 'use client'
 import React from 'react';
-import {Divider, Row} from "antd";
 
 const Page: React.FC = () => {
   return <div>
