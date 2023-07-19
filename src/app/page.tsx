@@ -7,6 +7,7 @@ import { cn } from "@/utils/utils";
 import { WechatOutlined, WeiboOutlined, QqOutlined, TwitterOutlined } from '@ant-design/icons';
 import Link from "@/app/components/Link";
 import {globals} from "@/globals";
+import Image from "@/app/components/Image";
 
 interface IntroCardProps {
   icon?: ReactNode;
@@ -128,7 +129,7 @@ export default function Home() {
                   <IntroCard
                     title={card.title}
                     description={card.description}
-                    icon={<img src={card.iconSrc} className={cn("w-32 h-32")} alt={card.title} />}
+                    icon={<Image src={card.iconSrc} height={32} width={32} alt={card.title} />}
                   />
                 </div>
               ))}

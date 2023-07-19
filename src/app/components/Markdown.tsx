@@ -2,6 +2,7 @@
 
 import ReactMarkdown from "react-markdown";
 import Async from "@/app/components/Async";
+import React from "react";
 
 const Markdown: React.FC<{
   href?: string,

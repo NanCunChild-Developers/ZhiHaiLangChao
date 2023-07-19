@@ -12,6 +12,7 @@ import type { MenuProps } from 'antd';
 import { Breadcrumb, Button, Divider, Layout, Menu, Row, theme } from 'antd';
 import Link from "@/app/components/Link";
 import { globals } from "@/globals";
+import Image from "@/app/components/Image";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -80,9 +81,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <Row>
           <Link href={"/"}>
             <Row className={cn("text-2xl mx-32 mt-8 gap-16")}>
-              <img style={{
-                height: "32px",
-              }} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+              <Image height={32} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt=""/>
               {
                 "智海浪潮" // TODO: use i18n & 左边可以放logo & 改个字体
               }
