@@ -1,6 +1,6 @@
 'use client'
-import {cn} from "@/utils/utils"
-import React, {useState} from 'react';
+import { cn } from "@/utils/utils"
+import React, { useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -8,12 +8,12 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type {MenuProps} from 'antd';
-import {Breadcrumb, Button, Divider, Layout, Menu, Row, theme} from 'antd';
+import type { MenuProps } from 'antd';
+import { Breadcrumb, Button, Divider, Layout, Menu, Row, theme } from 'antd';
 import Link from "@/app/components/Link";
-import {globals} from "@/globals";
+import { globals } from "@/globals";
 
-const {Header, Content, Footer, Sider} = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number] & {
   children?: MenuItem[];
@@ -37,15 +37,15 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('分析', 'analyze', "analyze", <PieChartOutlined/>),
-  getItem('Option 2', '2', "", <DesktopOutlined/>),
-  getItem('User', 'sub1', "", <UserOutlined/>, [
+  getItem('分析', 'analyze', "analyze", <PieChartOutlined />),
+  getItem('Option 2', '2', "", <DesktopOutlined />),
+  getItem('User', 'sub1', "", <UserOutlined />, [
     getItem('Tom', '3', ""),
     getItem('Bill', '4', "",),
     getItem('Alex', '5', "",),
   ]),
-  getItem('Team', 'sub2', "", <TeamOutlined/>, [getItem('Team 1', '6', ""), getItem('Team 2', '8', "",)]),
-  getItem('Files', '9', "", <FileOutlined/>),
+  getItem('Team', 'sub2', "", <TeamOutlined />, [getItem('Team 1', '6', ""), getItem('Team 2', '8', "",)]),
+  getItem('Files', '9', "", <FileOutlined />),
 ];
 
 // function findTextByKeyPath(keyPath: string[]): string[] {
@@ -63,14 +63,14 @@ const items: MenuItem[] = [
 //   return result;
 // }
 
-export default function Page({children}: { children: React.ReactNode }) {
+export default function Page({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const {
-    token: {colorBgContainer},
+    token: { colorBgContainer },
   } = theme.useToken();
   const [breadcrumbItems, setBreadcrumbItems] = useState<string[]>(["-"]);
   return (
-    <Layout style={{minHeight: '100vh'}}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Header style={{
         padding: 0,
         background: colorBgContainer,
@@ -82,27 +82,30 @@ export default function Page({children}: { children: React.ReactNode }) {
             <Row className={cn("text-2xl mx-32 mt-8 gap-16")}>
               <img style={{
                 height: "32px",
-              }} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+              }} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
               {
                 "智海浪潮" // TODO: use i18n & 左边可以放logo & 改个字体
               }
             </Row>
           </Link>
-          <Divider type={"vertical"} style={{height: "32px"}}/>
+          <Divider type={"vertical"} style={{ height: "32px" }} />
           {
             globals.disableBreadcrumb ? null : <div className={cn("my-6")}>
               <Breadcrumb items={breadcrumbItems.map((l) => {
                 return {
                   title: l
                 }
-              })}/>
+              })} />
             </div>
           }
           <Row className={cn("flex-grow h-48 items-center")} justify={"end"}>
-              <Link href={"/docs"} wrapper innerFlex>
-                <QuestionOutlined/>
+            {globals.disableDocs ? null :
+              <Link href={"/docs"} wrapper innerFlex height={"48px"} wrapperStyle={{
+                paddingRight: "12px",
+              }}>
+                <QuestionOutlined />
                 Docs
-              </Link>
+              </Link>}
           </Row>
         </Row>
       </Header>
@@ -112,15 +115,15 @@ export default function Page({children}: { children: React.ReactNode }) {
             background: colorBgContainer,
             borderRight: "1px solid #e8e8e8",
           }} theme={"light"} collapsible collapsed={collapsed} collapsedWidth={50}
-                                               onCollapse={(value) => setCollapsed(value)}>
-            <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({keyPath}) => {
+            onCollapse={(value) => setCollapsed(value)}>
+            <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({ keyPath }) => {
               console.log(keyPath);
               // setBreadcrumbItems(findTextByKeyPath(keyPath));
-            }}/>
+            }} />
           </Sider>
         }
-        <Content style={{margin: '16px'}}>
-          <div style={{padding: 24, minHeight: 360, background: colorBgContainer}}>
+        <Content style={{ margin: '16px' }}>
+          <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>
             {children}
           </div>
         </Content>

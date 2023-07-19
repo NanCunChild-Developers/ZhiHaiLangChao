@@ -16,13 +16,13 @@ interface IntroCardProps {
 
 const IntroCard: React.FC<IntroCardProps> = ({ icon, title, description }) => {
   return (
-    <div className={cn("card flex items-center justify-center my-16 mx-2")}>
-      <div className={cn("card-icon m-2")}>
+    <div className={cn("card flex items-center justify-center my-16 ")}>
+      <div className={cn("card-icon mx-8")}>
         {icon ?? <div className={cn("card-icon-placeholder")}></div>}
       </div>
-      <div className={cn("card-content m-2 max-w-[50%]")}>
-        <div className={cn("card-title text-2xl font-bold text-black text-left")}>{title}</div>
-        <p className={cn("card-description text-sm text-gray-500 mt-2")}>{description}</p>
+      <div className={cn("card-content m-2 max-w-half text-left")}>
+        <div className={cn("card-title text-2xl font-bold text-black")}>{title}</div>
+        <p className={cn("card-description text-sm text-gray-500 m-2")}>{description}</p>
       </div>
     </div>
   );

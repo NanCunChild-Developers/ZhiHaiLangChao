@@ -84,24 +84,11 @@ module.exports = {
       '3xl': '1500px',
       '4xl': '1680px',
       '5xl': '1860px',
+      'half': '50%',
       'full': '100%',
       'fit': 'fit-content',
       'screen': '100vw',
-    },
-    extend: {
-      minHeight: {
-        'screen-nav': 'calc(100vh - 65px)',
-        'screen-nav-footer': 'calc(100vh - 65px - 52px)',
-      },
-      maxHeight: {
-        'screen-nav': 'calc(100vh - 65px)',
-        'screen-nav-footer': 'calc(100vh - 65px - 52px)',
-      },
-      height: {
-        'screen-nav': 'calc(100vh - 65px)',
-        'screen-nav-footer': 'calc(100vh - 65px - 52px)',
-      },
-    },
+    }
   },
   plugins: [],
 };
