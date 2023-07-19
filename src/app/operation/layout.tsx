@@ -11,6 +11,7 @@ import {
 import type {MenuProps} from 'antd';
 import {Breadcrumb, Divider, Layout, Menu, Row, theme} from 'antd';
 import Link from "@/app/components/Link";
+import {globals} from "@/globals";
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -88,26 +89,30 @@ export default function Page({children}: { children: React.ReactNode }) {
             </Row>
           </Link>
           <Divider type={"vertical"} style={{height: "32px"}}/>
-          {/*<div className={cn("my-6")}>*/}
-          {/*  <Breadcrumb items={breadcrumbItems.map((l) => {*/}
-          {/*    return {*/}
-          {/*      title: l*/}
-          {/*    }*/}
-          {/*  })}/>*/}
-          {/*</div>*/}
+          {
+            globals.disableBreadcrumb ? null : <div className={cn("my-6")}>
+              <Breadcrumb items={breadcrumbItems.map((l) => {
+                return {
+                  title: l
+                }
+              })}/>
+            </div>
+          }
         </Row>
       </Header>
       <Layout>
-        {/*<Sider style={{*/}
-        {/*  background: colorBgContainer,*/}
-        {/*  borderRight: "1px solid #e8e8e8",*/}
-        {/*}} theme={"light"} collapsible collapsed={collapsed} collapsedWidth={50}*/}
-        {/*       onCollapse={(value) => setCollapsed(value)}>*/}
-        {/*  <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({keyPath}) => {*/}
-        {/*    console.log(keyPath);*/}
-        {/*    // setBreadcrumbItems(findTextByKeyPath(keyPath));*/}
-        {/*  }}/>*/}
-        {/*</Sider>*/}
+        {
+          globals.disableSider ? null : <Sider style={{
+            background: colorBgContainer,
+            borderRight: "1px solid #e8e8e8",
+          }} theme={"light"} collapsible collapsed={collapsed} collapsedWidth={50}
+                                               onCollapse={(value) => setCollapsed(value)}>
+            <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({keyPath}) => {
+              console.log(keyPath);
+              // setBreadcrumbItems(findTextByKeyPath(keyPath));
+            }}/>
+          </Sider>
+        }
         <Content style={{margin: '16px'}}>
           <div style={{padding: 24, minHeight: 360, background: colorBgContainer}}>
             {children}
