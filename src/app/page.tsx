@@ -105,7 +105,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={cn("overflow-hidden h-screen bg-white-600 flex items-center justify-center")}>Section 3</div>
+        <div className={cn("overflow-hidden h-screen bg-white-600 flex items-center justify-center")}>Section 3
+                  
+        
+        </div>
       </div>
     </main>
 

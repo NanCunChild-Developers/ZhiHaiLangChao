@@ -1,4 +1,5 @@
 import React from "react";
+import echarts from 'echarts';
 
 const Page: React.FC = () => {
   return <>
