@@ -47,20 +47,20 @@ const items: MenuItem[] = [
   getItem('Files', '9', "", <FileOutlined/>),
 ];
 
-function findTextByKeyPath(keyPath: string[]): string[] {
-  const result: string[] = [];
-  let subItems = items;
-  for (const key of keyPath.reverse()) {
-    const item = subItems.find((item) => item?.key === key);
-    if (item) {
-      result.push(item?.text);
-      subItems = item?.children || [];
-    } else {
-      result.push(key);
-    }
-  }
-  return result;
-}
+// function findTextByKeyPath(keyPath: string[]): string[] {
+//   const result: string[] = [];
+//   let subItems = items;
+//   for (const key of keyPath.reverse()) {
+//     const item = subItems.find((item) => item?.key === key);
+//     if (item) {
+//       result.push(item?.text);
+//       subItems = item?.children || [];
+//     } else {
+//       result.push(key);
+//     }
+//   }
+//   return result;
+// }
 
 export default function Page({children}: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -84,13 +84,13 @@ export default function Page({children}: { children: React.ReactNode }) {
             "智海浪潮" // TODO: use i18n & 左边可以放logo & 改个字体
           }
           <Divider type={"vertical"} style={{height: "32px"}}/>
-          <div className={cn("my-6")}>
-            <Breadcrumb items={breadcrumbItems.map((l) => {
-              return {
-                title: l
-              }
-            })}/>
-          </div>
+          {/*<div className={cn("my-6")}>*/}
+          {/*  <Breadcrumb items={breadcrumbItems.map((l) => {*/}
+          {/*    return {*/}
+          {/*      title: l*/}
+          {/*    }*/}
+          {/*  })}/>*/}
+          {/*</div>*/}
         </div>
       </Header>
       <Layout>
@@ -100,7 +100,8 @@ export default function Page({children}: { children: React.ReactNode }) {
         }} theme={"light"} collapsible collapsed={collapsed} collapsedWidth={50}
                onCollapse={(value) => setCollapsed(value)}>
           <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({keyPath}) => {
-            setBreadcrumbItems(findTextByKeyPath(keyPath));
+            console.log(keyPath);
+            // setBreadcrumbItems(findTextByKeyPath(keyPath));
           }}/>
         </Sider>
         <Content style={{margin: '16px'}}>

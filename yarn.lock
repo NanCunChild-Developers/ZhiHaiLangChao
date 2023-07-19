@@ -1483,6 +1483,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"echarts@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "echarts@npm:5.4.3"
+  dependencies:
+    tslib: 2.3.0
+    zrender: 5.4.4
+  checksum: f4f69becf1cf8f546f9488ffa3bffaa971dcfbd49f5d635f288cbc8c5177839154bd6c325d6ed72c2b822c89c9bba4947ac73400614fd23c6f2f7ace3c939132
+  languageName: node
+  linkType: hard
+
 "electron-to-chromium@npm:^1.4.431":
   version: 1.4.461
   resolution: "electron-to-chromium@npm:1.4.461"
@@ -3722,6 +3732,7 @@ __metadata:
     antd: ^5.7.0
     autoprefixer: 10.4.14
     clsx: ^2.0.0
+    echarts: ^5.4.3
     eslint: 8.44.0
     eslint-config-next: 13.4.9
     next: 13.4.9
@@ -5398,6 +5409,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:2.3.0":
+  version: 2.3.0
+  resolution: "tslib@npm:2.3.0"
+  checksum: 8869694c26e4a7b56d449662fd54a4f9ba872c889d991202c74462bd99f10e61d5bd63199566c4284c0f742277736292a969642cc7b590f98727a7cae9529122
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^1.8.1":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
@@ -5767,5 +5785,14 @@ __metadata:
   version: 3.21.4
   resolution: "zod@npm:3.21.4"
   checksum: f185ba87342ff16f7a06686767c2b2a7af41110c7edf7c1974095d8db7a73792696bcb4a00853de0d2edeb34a5b2ea6a55871bc864227dace682a0a28de33e1f
+  languageName: node
+  linkType: hard
+
+"zrender@npm:5.4.4":
+  version: 5.4.4
+  resolution: "zrender@npm:5.4.4"
+  dependencies:
+    tslib: 2.3.0
+  checksum: 4b317346af8eca38e62ba029239c3a13e97eac4fa15b3ddadbae23442d8b373f0e937c255dee8080d6bb2fc79c9da54f1106415586ed8942bd8bc684b3890ea9
   languageName: node
   linkType: hard

@@ -1,17 +1,23 @@
 import React from "react";
 import NextLink from "next/link";
 import "./Link.css";
+
 const Link: React.FC<{
   href: string,
   children: React.ReactNode,
-}> = ({href, children}) => {
-  return <div className={"k-link"}>
+  wrapper?: boolean,
+}> = ({href, children, wrapper = true}) => {
+  return wrapper ? <div className={"k-link"}>
     <NextLink href={href} style={{
       textDecoration: "none",
     }}>
       {children}
     </NextLink>
-  </div>
+  </div> : <NextLink href={href} style={{
+    textDecoration: "none",
+  }}>
+    {children}
+  </NextLink>;
 };
 
 export default Link;
