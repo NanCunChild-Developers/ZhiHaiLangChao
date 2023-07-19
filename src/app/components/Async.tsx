@@ -1,6 +1,6 @@
 'use client'
 
-import React from "react"
+import React, {ReactNode} from "react"
 
 const propTypes = (() => {
   let PropTypes
@@ -268,13 +268,13 @@ class Async<T> extends React.Component<AsyncProps<T>, AsyncState<T>> {
 }
 
 type GenericAsync = typeof Async & {
-  Initial<T>(props: InitialProps<T>): JSX.Element
-  Pending<T>(props: PendingProps<T>): JSX.Element
-  Loading<T>(props: PendingProps<T>): JSX.Element
-  Fulfilled<T>(props: FulfilledProps<T>): JSX.Element
-  Resolved<T>(props: FulfilledProps<T>): JSX.Element
-  Rejected<T>(props: RejectedProps<T>): JSX.Element
-  Settled<T>(props: SettledProps<T>): JSX.Element
+  Initial<T>(props: InitialProps<T>): ReactNode
+  Pending<T>(props: PendingProps<T>): ReactNode
+  Loading<T>(props: PendingProps<T>): ReactNode
+  Fulfilled<T>(props: FulfilledProps<T>): ReactNode
+  Resolved<T>(props: FulfilledProps<T>): ReactNode
+  Rejected<T>(props: RejectedProps<T>): ReactNode
+  Settled<T>(props: SettledProps<T>): ReactNode
 }
 
 type AsyncConstructor<T> = React.ComponentClass<AsyncProps<T>> & {
@@ -415,7 +415,7 @@ const dispatchMiddleware = <T, >(
 ) => (action: AsyncAction<T>, ...args: unknown[]) => {
   dispatch(action, ...args)
   if (action.type === ActionTypes.start && typeof action.payload === "function") {
-    action.payload()
+    void action.payload();
   }
 }
 
@@ -524,10 +524,10 @@ const IfSettled = <T extends {}>({
  * createInstance allows you to create instances of Async that are bound to a specific promise.
  * A unique instance also uses its own React context for better nesting capability.
  */
-function createInstance<T>(
+function createInstance<T extends {}>(
   defaultOptions: AsyncProps<T> = {},
   displayName = "Async"
-): AsyncConstructor<T> {
+): AsyncConstructor<T>{
   const {Consumer: UnguardedConsumer, Provider} = React.createContext<AsyncState<T> | undefined>(
     undefined
   )
@@ -582,7 +582,7 @@ function createInstance<T>(
         run: this.run,
         reload: () => {
           this.load()
-          this.run(...this.args)
+          void this.run(...this.args)
         },
         setData: this.setData,
         setError: this.setError,
@@ -751,19 +751,19 @@ function createInstance<T>(
   if (propTypes) (Async as React.ComponentClass).propTypes = propTypes.Async
 
   const AsyncInitial: Constructor["Initial"] = props => (
-    <Consumer>{st => <IfInitial {...props} state={st}/>}</Consumer>
+    <Consumer>{st => <IfInitial<T> {...props} state={st}/>}</Consumer>
   )
   const AsyncPending: Constructor["Pending"] = props => (
-    <Consumer>{st => <IfPending {...props} state={st}/>}</Consumer>
+    <Consumer>{st => <IfPending<T> {...props} state={st}/>}</Consumer>
   )
   const AsyncFulfilled: Constructor["Fulfilled"] = props => (
-    <Consumer>{st => <IfFulfilled {...props} state={st}/>}</Consumer>
+    <Consumer>{st => <IfFulfilled<T> {...props} state={st}/>}</Consumer>
   )
   const AsyncRejected: Constructor["Rejected"] = props => (
-    <Consumer>{st => <IfRejected {...props} state={st}/>}</Consumer>
+    <Consumer>{st => <IfRejected<T> {...props} state={st}/>}</Consumer>
   )
   const AsyncSettled: Constructor["Settled"] = props => (
-    <Consumer>{st => <IfSettled {...props} state={st}/>}</Consumer>
+    <Consumer>{st => <IfSettled<T> {...props} state={st}/>}</Consumer>
   )
 
   AsyncInitial.displayName = `${displayName}.Initial`

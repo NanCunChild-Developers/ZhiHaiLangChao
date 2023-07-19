@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import {Divider, Menu} from 'antd';
+import Link from "@/app/components/Link";
 
 const items: MenuProps['items'] = [
   {
-    label: 'Navigation One',
+    label: (
+      <Link href={"/operation/analyze/nav1"} wrapper={false } >Nav One</Link>
+    ),
     key: 'mail',
     icon: <MailOutlined />,
   },
@@ -54,7 +57,7 @@ const items: MenuProps['items'] = [
   {
     label: (
       <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
+      Ant Design
       </a>
     ),
     key: 'alipay',

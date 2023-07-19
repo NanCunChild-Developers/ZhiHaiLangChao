@@ -19,8 +19,8 @@ const IntroCard: React.FC<IntroCardProps> = ({icon, title, description}) => {
         {icon ?? <div className={cn("card-icon-placeholder")}></div>}
       </div>
       <div className={cn("card-content m-2")}>
-        <div className={cn("card-title text-h4 font-bold text-black")}>{title}</div>
-        <p className={cn("card-description text-small text-gray-500")}>{description}</p>
+        <div className={cn("card-title text-2xl font-bold text-black")}>{title}</div>
+        <p className={cn("card-description text-sm text-gray-500")}>{description}</p>
       </div>
     </div>
   );
@@ -65,12 +65,12 @@ export default function Home() {
   return (
     <main>
       <div className={cn("h-screen")}>
-
-        <div className={cn("overflow-hidden h-screen bg-gray-400 flex items-center justify-center")}>
-          <div className={cn("text-center")}>
-            <div className={cn("font-bold text-h1 text-blue-900")}>智海浪潮</div>
-            <div className={cn("font-bold text-h3 text-blue-900")}>SciAI Ocean Anticipation Utils</div>
-            <div className={cn("text-large text-blue-900 mt-2")}>一款海洋环境预测商业化AI</div>
+        <div className={cn("overflow-hidden h-screen flex justify-center")}>
+          <div className={"title-screen"} />
+          <div className={cn("text-center mt-[30vh]")}>
+            <div className={cn("font-bold text-4xl text-blue-900")}>智海浪潮</div>
+            <div className={cn("font-bold text-2xl text-blue-900")}>SciAI Ocean Anticipation Utils</div>
+            <div className={cn("text-lg text-blue-900 mt-2")}>一款海洋环境预测商业化AI</div>
             <div className={cn("flex flex-col items-center mt-4")}>
               <div className={cn("flex items-center")}>
                 <Link href={"/operation"}>
@@ -88,10 +88,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         <div className={cn("overflow-hidden h-screen bg-white-600 flex items-center justify-center")}>
           <div className={cn("text-center")}>
-            <div className={cn("font-bold text-5xl text-blue-900 mb-4")}>介绍</div>
+            <div className={cn("font-bold text-4xl text-blue-900 mb-4")}>介绍</div>
 
             <div className={cn("grid grid-cols-2 gap-4 m-2 mt-4")}>
               {cardData.map((card, index) => (
