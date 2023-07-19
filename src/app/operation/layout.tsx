@@ -9,7 +9,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import type {MenuProps} from 'antd';
-import {Breadcrumb, Divider, Layout, Menu, theme} from 'antd';
+import {Breadcrumb, Divider, Layout, Menu, Row, theme} from 'antd';
 import Link from "@/app/components/Link";
 
 const {Header, Content, Footer, Sider} = Layout;
@@ -76,13 +76,17 @@ export default function Page({children}: { children: React.ReactNode }) {
         height: "48px",
         borderBottom: "1px solid #e8e8e8",
       }}>
-        <div className={cn("text-h3 mx-32 mt-8 flex flex-row gap-16")}>
-          <img style={{
-            height: "32px",
-          }} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
-          {
-            "智海浪潮" // TODO: use i18n & 左边可以放logo & 改个字体
-          }
+        <Row>
+          <Link href={"/"}>
+            <Row className={cn("text-2xl mx-32 mt-8 gap-16")}>
+              <img style={{
+                height: "32px",
+              }} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"/>
+              {
+                "智海浪潮" // TODO: use i18n & 左边可以放logo & 改个字体
+              }
+            </Row>
+          </Link>
           <Divider type={"vertical"} style={{height: "32px"}}/>
           {/*<div className={cn("my-6")}>*/}
           {/*  <Breadcrumb items={breadcrumbItems.map((l) => {*/}
@@ -91,19 +95,19 @@ export default function Page({children}: { children: React.ReactNode }) {
           {/*    }*/}
           {/*  })}/>*/}
           {/*</div>*/}
-        </div>
+        </Row>
       </Header>
       <Layout>
-        <Sider style={{
-          background: colorBgContainer,
-          borderRight: "1px solid #e8e8e8",
-        }} theme={"light"} collapsible collapsed={collapsed} collapsedWidth={50}
-               onCollapse={(value) => setCollapsed(value)}>
-          <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({keyPath}) => {
-            console.log(keyPath);
-            // setBreadcrumbItems(findTextByKeyPath(keyPath));
-          }}/>
-        </Sider>
+        {/*<Sider style={{*/}
+        {/*  background: colorBgContainer,*/}
+        {/*  borderRight: "1px solid #e8e8e8",*/}
+        {/*}} theme={"light"} collapsible collapsed={collapsed} collapsedWidth={50}*/}
+        {/*       onCollapse={(value) => setCollapsed(value)}>*/}
+        {/*  <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={items} onSelect={({keyPath}) => {*/}
+        {/*    console.log(keyPath);*/}
+        {/*    // setBreadcrumbItems(findTextByKeyPath(keyPath));*/}
+        {/*  }}/>*/}
+        {/*</Sider>*/}
         <Content style={{margin: '16px'}}>
           <div style={{padding: 24, minHeight: 360, background: colorBgContainer}}>
             {children}

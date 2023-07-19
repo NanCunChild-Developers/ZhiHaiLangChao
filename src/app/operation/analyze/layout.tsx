@@ -8,7 +8,7 @@ import Link from "@/app/components/Link";
 const items: MenuProps['items'] = [
   {
     label: (
-      <Link href={"/operation/analyze/nav1"} wrapper={false}>Nav One</Link>
+      <Link href={"/operation/analyze/nav1"} wrapper={false } >Nav One</Link>
     ),
     key: 'mail',
     icon: <MailOutlined />,
