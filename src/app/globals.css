@@ -28,5 +28,39 @@
     width: 100%;
     position: absolute;
     z-index: -1;
-    filter: blur(3px) ;
 }
+
+@keyframes float {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+@keyframes blur {
+    0% {
+      filter: blur(0px);
+    }
+    100% {
+      filter: blur(6px);
+    }
+  }
+
+  .animate-titleFloat {
+    animation: float 1s ease-out;
+  }
+
+  .animate-buttonFloat{
+    animation: float 1s ease-out;
+    animation-delay: 1s;
+  }
+
+  .animate-bgBlur{
+    animation: blur 1s ease-out;
+    /* animation-delay: 0.5s; */
+    animation-fill-mode: forwards;
+  }
