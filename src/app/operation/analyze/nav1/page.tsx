@@ -1,7 +1,7 @@
 'use client'
-import React, { useEffect } from 'react';
-import echarts from 'echarts';
+import React from 'react';
 import { Tabs } from 'antd';
+import {LinerChart} from "@/app/operation/analyze/nav1/charts/Examples";
 
 const { TabPane } = Tabs;
 
@@ -14,46 +14,19 @@ const ChartTabs = () => {
   return (
     <Tabs defaultActiveKey="1" onChange={handleTabChange}>
       <TabPane tab="图表1" key="1">
-        {/* 图表1的内容 */}
-        111
+        <LinerChart />
       </TabPane>
       <TabPane tab="图表2" key="2">
-        {/* 图表2的内容 */}
-        222
+        <LinerChart />
       </TabPane>
       <TabPane tab="图表3" key="3">
-        {/* 图表3的内容 */}
-        333
+        <LinerChart />
       </TabPane>
     </Tabs> 
   );
 };
 
-
-
 const Page: React.FC = () => {
-  // useEffect(() => {
-  //   // 获取容器元素
-  //   const chartContainer = document.getElementById('chartContainer');
-  //   // 创建图表实例
-  //   const chart = echarts.init(chartContainer);
-  
-  //   // 配置图表数据和样式
-  //   const options = {
-  //     // 图表配置选项
-  //     // ...
-  //   };
-  
-  //   // 设置图表配置
-  //   chart.setOption(options);
-  
-  //   // 清除图表实例
-  //   return () => {
-  //     chart.dispose();
-  //   };
-  // }, []);
-
-  
   return <div className="w-full h-screen flex justify-center">
     <div className="w-1/2 h-600px m-8">
       <div className="mb-4">
@@ -96,9 +69,6 @@ const Page: React.FC = () => {
     <div className="w-1/2 h-600px m-8">
       {/* Echarts放这里 */}
       <ChartTabs />
-      <div id='echartsContainer' style={{ width: '100%', height: '400px' }}></div>
-
-      soso
     </div>
   </div>
 
