@@ -2,6 +2,9 @@
 import React from 'react';
 import { Tabs } from 'antd';
 import {LinerChart} from "@/app/operation/analyze/nav1/charts/Examples";
+import ChartPerlinNoise from './charts/HeatMap';
+import { RosePie } from './charts/RosePie';
+import { ThemeRiver } from './charts/ThemeRiver';
 
 const { TabPane } = Tabs;
 
@@ -14,13 +17,13 @@ const ChartTabs = () => {
   return (
     <Tabs defaultActiveKey="1" onChange={handleTabChange}>
       <TabPane tab="图表1" key="1">
-        <LinerChart />
+        <RosePie />
       </TabPane>
       <TabPane tab="图表2" key="2">
-        <LinerChart />
+        <ChartPerlinNoise />
       </TabPane>
       <TabPane tab="图表3" key="3">
-        <LinerChart />
+        <ThemeRiver />
       </TabPane>
     </Tabs> 
   );

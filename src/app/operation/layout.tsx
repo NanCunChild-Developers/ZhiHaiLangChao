@@ -81,7 +81,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
         <Row>
           <Link href={"/"}>
             <Row className={cn("text-2xl mx-32 mt-8 gap-16")}>
-              <Image height={32} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt=""/>
+              <Image height={32} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="" />
               {
                 "智海浪潮" // TODO: use i18n & 左边可以放logo & 改个字体
               }
@@ -122,7 +122,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
           </Sider>
         }
         <Content style={{ margin: '16px' }}>
-          <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>
+          <div className={`p-24 min-h-360 bg-${colorBgContainer}`}>
             {children}
           </div>
         </Content>

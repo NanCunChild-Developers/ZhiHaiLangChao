@@ -9,7 +9,7 @@ const ChartBase : React.FC<{
 }> = ({label,options}) => {
   return <div className={cn("")}>
     <div className={cn("flex flex-grow justify-between items-center font text-2xl mt-4 ml-4")}>{label}</div>
-    <EChartsReact option={options} style={{width: '100%', height: '400px'}}/>
+    <EChartsReact option={options} style={{width: '100%', height: '620px'}}/>
   </div>
 }
 
